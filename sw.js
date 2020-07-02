@@ -56,28 +56,28 @@ self.addEventListener('activate', evt => {
 })
 
 self.addEventListener('fetch', evt => {
-  evt.respondWith(
-    caches
-      .match(evt.request)
-      .then(cacheRes => {
+  // evt.respondWith(
+  //   caches
+  //     .match(evt.request)
+  //     .then(cacheRes => {
         
-        return cacheRes ||
-          fetch(evt.request)
-            .then(fetchRes => {
+  //       return cacheRes ||
+  //         fetch(evt.request)
+  //           .then(fetchRes => {
 
-              return caches
-                .open(dynamicCacheName)
-                .then(cache => {
-                  cache.put(evt.request.url, fetchRes.clone())
-                  limitCacheSize(dynamicCacheName, 3)
+  //             return caches
+  //               .open(dynamicCacheName)
+  //               .then(cache => {
+  //                 cache.put(evt.request.url, fetchRes.clone())
+  //                 limitCacheSize(dynamicCacheName, 3)
 
-                  return fetchRes
-                })
-            })
-      })
-      .catch(() => {
-        if(evt.request.url.indexOf('.html') > -1)
-          return caches.match('/pages/fallback.html')}
-      )
-  )
+  //                 return fetchRes
+  //               })
+  //           })
+  //     })
+  //     .catch(() => {
+  //       if(evt.request.url.indexOf('.html') > -1)
+  //         return caches.match('/pages/fallback.html')}
+  //     )
+  // )
 })

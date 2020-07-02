@@ -95,7 +95,26 @@
       </div>
     </form>
   </div>
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-store.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.15.5/firebase-analytics.js"></script>
+  <script>
+    var firebaseConfig = {
+      apiKey: "AIzaSyAUZP-idpRQBQUbTyxhYV1raACAhjbEtmw",
+      authDomain: "food-ninja--pwa.firebaseapp.com",
+      databaseURL: "https://food-ninja--pwa.firebaseio.com",
+      projectId: "food-ninja--pwa",
+      storageBucket: "food-ninja--pwa.appspot.com",
+      messagingSenderId: "677344231052",
+      appId: "1:677344231052:web:bb2b0a9f31ffbcfc08c5a9",
+      measurementId: "G-KWF34EZ0XX"
+    };
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+    const db = firebase.firestore()
+  </script>
   <script src="/js/app.js"></script>
+  <script src="/js/db.js"></script>
   <script src="/js/ui.js"></script>
 </body>
 </html>
